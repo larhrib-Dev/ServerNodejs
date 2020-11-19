@@ -1,18 +1,21 @@
 {
-  "name": "nodeBackend",
+  "name": "Serveur",
   "version": "1.0.0",
   "description": "# npm init -y",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --watch server.js"
+    "dev": "nodemon --exec node server.js"
   },
   "keywords": [],
   "author": "larhrib",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http": "^0.0.1-security",
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
   }
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const app = express();
 const errorsMap = require('./errors/error.route');
@@ -25,6 +26,11 @@ mongoose.connection.on('error', (error) => {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// use passport
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport)
 
 // --------- Routes -------- //
 app.use('/api', userRoute);
